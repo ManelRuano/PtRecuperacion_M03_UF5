@@ -223,7 +223,7 @@ public class TestMain {
             System.out.println("\nAdding balones de oro...");
             MainA.addBalonDeOro(1, 1, "2017");
             MainA.addBalonDeOro(2, 2, "2023");
-            MainA.listMissions();
+            MainA.listBalonDeOro();
     
             // Close the database connection
             db.close();
@@ -290,13 +290,13 @@ public class TestMain {
 
         // Delete a equipo and list
         System.out.println("\nDeleting equipo 'Al Hilal'...");
-        MainB.deleteSpaceship(1);
-        MainB.listSpaceships();
+        MainB.deleteEquipos(1);
+        MainB.listEquipos();
 
         // Add another species, update a mission, and list both
         System.out.println("\nAdding another species and updating a mission...");
         MainB.addJugadores("Neymar", "Brasil", false);
-        MainB.updateMission(2, "2019");
+        MainB.updateBalonDeOro(2, "2019");
         MainB.listJugadores();
         MainB.listBalonDeOro();
 
