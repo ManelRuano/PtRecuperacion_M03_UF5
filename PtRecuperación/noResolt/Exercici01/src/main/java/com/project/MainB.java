@@ -55,9 +55,9 @@ public class MainB {
         app.commit();
 
         // Eliminar un element
-        int idToDelete = listJugador.get(1).getId();
-        boolean deleted = app.deleteJugador(idToDelete);
-        System.out.println("Deleted jugador: " + deleted);
+        int idToDelete1 = listJugador.get(1).getId();
+        boolean deleted1 = app.deleteJugador(idToDelete1);
+        System.out.println("Deleted jugador: " + deleted1);
         app.commit();
 
         List<Trofeo> listA = app.getAllTrofeos();
@@ -118,10 +118,12 @@ public class MainB {
     }
 
     public boolean deleteTrofeo(int id) {
+        return false;
         
     }
     
     public boolean deleteJugador(int id) {
+        return false;
         
     }
 

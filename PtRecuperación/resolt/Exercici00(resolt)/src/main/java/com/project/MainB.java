@@ -95,7 +95,7 @@ public class MainB {
         AppData.getInstance().update(sql);
     }
 
-    public static void updateBalonDeOro(int Id, String año) {
+    public static void updateBalonDeOro(int id, String año) {
         String sql = "UPDATE balonDeOro SET año = '" + año + "' WHERE id = " + id;
         AppData.getInstance().update(sql);
     }

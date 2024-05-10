@@ -28,7 +28,7 @@ public class TestMain {
         // Comprova que la sortida conté el text esperat
         String expectedOutput = """
             Adding initial jugadores...
-            ID: 1, Nombre: Cristiano Ronaldo, Pais: Alpha Centauri, Zurdo: No
+            ID: 1, Nombre: Cristiano Ronaldo, Pais: Portugal, Zurdo: No
             ID: 2, Nombre: Messi, Pais: Argentina, Zurdo: Yes
 
             Adding equipos...
@@ -61,7 +61,7 @@ public class TestMain {
         // Comprova que la sortida conté el text esperat
         String expectedOutput = """
             Adding initial jugadores...
-            ID: 1, Nombre: Cristiano Ronaldo, Pais: Alpha Centauri, Zurdo: No
+            ID: 1, Nombre: Cristiano Ronaldo, Pais: Portugal, Zurdo: No
             ID: 2, Nombre: Messi, Pais: Argentina, Zurdo: Yes
             ID: 3, Nombre: Griezman, Pais: Francia, Zurdo: Yes
 
@@ -76,7 +76,7 @@ public class TestMain {
             ID: 3, Jugador ID: 3, Equipo ID: 2, Año: 2018
 
             Updating jugadores 'Cristiano Ronaldo' to 'Cristiano'...
-            ID: 1, Nombre: Cristiano, Pais: Alpha Centauri, Zurdo: No
+            ID: 1, Nombre: Cristiano, Pais: Portugal, Zurdo: No
             ID: 2, Nombre: Messi, Pais: Argentina, Zurdo: Yes
             ID: 3, Nombre: Griezman, Pais: Francia, Zurdo: Yes
 
@@ -85,7 +85,7 @@ public class TestMain {
             ID: 3, Nombre: PSG, Pais: Francia
 
             Adding another species and updating a mission...
-            ID: 1, Nombre: Cristiano Ronaldo, Pais: Alpha Centauri, Zurdo: No
+            ID: 1, Nombre: Cristiano Ronaldo, Pais: Portugal, Zurdo: No
             ID: 2, Nombre: Messi, Pais: Argentina, Zurdo: Yes
             ID: 3, Nombre: Griezman, Pais: Francia, Zurdo: Yes
             ID: 4, Nombre: Neymar, Pais: Brasil, Zurdo: No
@@ -94,7 +94,7 @@ public class TestMain {
             ID: 3, Jugador ID: 3, Equipo ID: 2, Año: 2018
 
             Deleting jugador 'Messi'...
-            ID: 1, Nombre: Cristiano Ronaldo, Pais: Alpha Centauri, Zurdo: No
+            ID: 1, Nombre: Cristiano Ronaldo, Pais: Portugal, Zurdo: No
             ID: 3, Nombre: Griezman, Pais: Francia, Zurdo: Yes
             ID: 4, Nombre: Neymar, Pais: Brasil, Zurdo: No
 
@@ -205,25 +205,25 @@ public class TestMain {
             AppData db = AppData.getInstance();
     
             // Create football-themed tables
-            createTables();
-    
+            MainA.createTables();
+            
             // Initially add jugadores and list
             System.out.println("Adding initial jugadores...");
-            addJugadores("Cristiano Ronaldo", "Portugal", false);
-            addJugadores("Messi", "Argentina", true);
-            listJugadores();
+            MainA.addJugadores("Cristiano Ronaldo", "Portugal", false);
+            MainA.addJugadores("Messi", "Argentina", true);
+            MainA.listJugadores();
     
             // Add equipos and list
             System.out.println("\nAdding equipos...");
-            addEquipos("Al Hilal", "España");
-            addEquipos("Miami FC", "EEUU");
-            listEquipos();
+            MainA.addEquipos("Al Hilal", "España");
+            MainA.addEquipos("Miami FC", "EEUU");
+            MainA.listEquipos();
     
             // Add trofeos and list
             System.out.println("\nAdding balones de oro...");
-            addBalonDeOro(1, 1, "2017");
-            addBalonDeOro(2, 2, "2023");
-            listMissions();
+            MainA.addBalonDeOro(1, 1, "2017");
+            MainA.addBalonDeOro(2, 2, "2023");
+            MainA.listMissions();
     
             // Close the database connection
             db.close();

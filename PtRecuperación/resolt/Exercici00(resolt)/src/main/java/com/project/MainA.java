@@ -31,7 +31,7 @@ public class MainA {
         System.out.println("\nAdding balones de oro...");
         addBalonDeOro(1, 1, "2017");
         addBalonDeOro(2, 2, "2023");
-        listMissions();
+        listBalonDeOro();
 
         // Close the database connection
         db.close();

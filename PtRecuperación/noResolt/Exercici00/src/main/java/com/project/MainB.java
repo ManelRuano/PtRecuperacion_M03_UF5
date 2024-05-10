@@ -70,7 +70,8 @@ public class MainB {
     }
     
     public static void addJugadores(String nombre, String pais, boolean zurdo) {
-       
+        
+    }
 
     public static void addEquipos(String name, String pais) {
        
