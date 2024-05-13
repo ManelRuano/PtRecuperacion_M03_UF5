@@ -28,24 +28,26 @@ type institut.sql | docker exec -i mysqlServer mysql -uroot -ppwd
 
 **Important**: Cada vegada que s'executa el main, s'han d'esborrar i tornar a crear les taules de la base de dades
 
-**Taula Professors :**
+**Taula Equipos :**
 
 ```sql
 
-professorId INTEGER PRIMARY KEY,  -- Un identificador únic.
-nom VARCHAR(255),                 -- El nom del professor.
-departament VARCHAR(255)          -- Departament al qual pertany el professor.
+equipoId INTEGER PRIMARY KEY,  -- Un identificador únic.
+nom TEXT1,                 -- El nombre del equipo.
+pais TEXT          -- pais al cual pertenece el professor.
 
 
 ```
 
-**Taula Cursos:**
+**Taula Jugadores:**
 
 ```sql
-cursId INTEGER PRIMARY KEY,       -- Un identificador únic.
-nom VARCHAR(255),                 -- El nom del curs.
-professorId INTEGER,              -- Relació amb la taula Professors.
-FOREIGN KEY (professorId) REFERENCES Professors(professorId)
+jugadorId INTEGER PRIMARY KEY,       -- Un identificador únic.
+nombre TEXT,                 -- El nom del curs.
+edad INTEGER,              -- Relació amb la taula Professors.
+posicion TEXT,
+equipoId INTEGER,
+FOREIGN KEY (equipoId) REFERENCES Equipos(equipoId)
 ```
 
 
@@ -55,24 +57,24 @@ Defineix també les següents funcions, i mira l'exemple de sortida per saber co
 ```text
 void createTables(Connection conn)
 
-public static void addProfessor(Connection conn, int id, String nom, String departament)
+public static void addJugador(Connection conn, int id, String nombre, int edad, String posicion, int equipoId)
 
-public static void addCourse(Connection conn, int id, String nom, int professorId)
-
-
-
-// Llista els telescopis de la base de dades fent servir el 'toString' de l'objecte 'Professors'
-public static void listProfessors(Connection conn) 
-
-// Llista els objectes celestials de la base de dades fent servir el 'toString' de l'objecte 'CelestialBody'
-public static void listCursos(Connection conn)
+public static void addEquipo(Connection conn, int id, String nombre, String pais)
 
 
 
-public static void deleteCourse(Connection conn, int courseId)
+// Llista els telescopis de la base de dades fent servir el 'toString' de l'objecte 'Jugadores'
+public static void listJugadores(Connection conn) 
+
+// Llista els objectes celestials de la base de dades fent servir el 'toString' de l'objecte 'Equipos'
+public static void listEquipos(Connection conn)
 
 
-public static void updateProfessorDepartment(Connection conn, int id, String newDepartament)
+
+public static void deleteEquipo(Connection conn, int equipoId)
+
+
+public static void updateEdadJugador(Connection conn, int jugadorId, int nuevaEdad)
     
 
 
@@ -86,17 +88,15 @@ Atributs: int id , String nom.
 
 public abstract String descripcio();
 
-**Objecte Professor que extends de persona**
+**Objecte Jugador que extends de persona**
 
-Atributs: String departament.
-Format a mostrar: [professorId=3, nom=pepe, departament=mates]"
-public abstract String descripcio();
+Atributs: Int edad, String posicion, in equipoId.
+Format a mostrar: Jugador{"id=1, nombre=Pepe, edad=30, posicion=central, equipoId=1};"
 
 **Objecte Curs que extends de persona**
 
 Atributs: int cursId, String nom , Professor profesor.
-Format a mostrar: [cursId=3, nom=mates, professor=pepe]
-public abstract String descripcio();
+Format a mostrar: "Equipo{equipoId=1, nombre=Madrid, pais=España}";
 
 
 Assegura't que passa els testos:
